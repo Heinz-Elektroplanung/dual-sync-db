@@ -1,0 +1,9 @@
+[
+  {
+    "id": "python-3.11-macos",
+    "name": "Python 3.11 Universal Installer",
+    "vendor": "Python Software Foundation",
+    "download_url": "https://www.python.org/ftp/python/3.11.0/python-3.11.0-macos11.pkg",
+    "sha256_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

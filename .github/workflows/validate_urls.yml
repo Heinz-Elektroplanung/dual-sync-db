@@ -1,0 +1,27 @@
+name: Validate Download URLs & Schema
+
+on:
+  push:
+    branches: [ "main" ]
+  schedule:
+    - cron: "0 0 * * 1" # Wöchentlicher Check
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install Dependencies
+        run: pip install jsonschema requests
+      - name: Run Validation Script
+        run: |
+          python -c "
+          import json, jsonschema
+          with open('schemas/db_schema.json') as s, open('data/software_downloads.json') as d:
+              jsonschema.validate(instance=json.load(d), schema=json.load(s))
+          print('Schema validation successful!')
+          "

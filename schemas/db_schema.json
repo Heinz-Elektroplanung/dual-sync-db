@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SoftwareDownloadCatalog",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": { "type": "string" },
+      "name": { "type": "string" },
+      "vendor": { "type": "string" },
+      "download_url": { "type": "string", "format": "uri" },
+      "sha256_hash": { "type": "string" }
+    },
+    "required": ["id", "name", "download_url"]
+  }
+}
